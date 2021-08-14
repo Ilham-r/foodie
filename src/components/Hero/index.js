@@ -26,7 +26,6 @@ function Hero() {
     });
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
   };
 
   useEffect(() => {
