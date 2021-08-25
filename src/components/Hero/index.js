@@ -7,6 +7,7 @@ function Hero() {
   const [query, setQuery] = useState('juice');
   const [recipes, setRecipes] = useState([]);
   const API = "https://edamam-recipe-search.p.rapidapi.com/search?q="
+  const KEY= "9cadb67088mshf449da1695db223p1ee60djsndba3ce50f012"
   const updateSearch = e => {
     setSearch(e.target.value);
   };
@@ -19,13 +20,12 @@ function Hero() {
     const response = await fetch(API + query, {
       "method": "GET",
       "headers": {
-        "x-rapidapi-key": "9cadb67088mshf449da1695db223p1ee60djsndba3ce50f012",
+        "x-rapidapi-key":KEY,
         "x-rapidapi-host": "edamam-recipe-search.p.rapidapi.com"
       }
     });
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
   };
 
   useEffect(() => {
